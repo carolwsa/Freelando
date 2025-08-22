@@ -32,6 +32,8 @@ const tema = {
     s: "16px",
     l: "32px",
   },
+
+  fonte: "'Montserrat', sans-serif",
 };
 
 export const ProvedorTema = ({ children }) => {
