@@ -33,7 +33,7 @@ export const Header = () => {
         <Links children={"Contrate"} link={"#"} />
         <Links children={"Encontre Trabalho"} link={"#"} />
         <Links children={"Meus projetos"} link={"#"} />
-        <Imagens children={perfil} />
+        <Imagens children={perfil} tipo={"perfil"} />
         <Links children={"Sair"} link={"#"} />
       </div>
     </HeaderEstilizado>

@@ -1,6 +1,7 @@
 import { CampoTexto } from "./Components/CampoTexto/CampoTexto";
 import { Card } from "./Components/Card/Card";
 import { Estilos } from "./Components/EstilosGlobais/Estilos";
+import { Footer } from "./Components/Footer/Footer";
 import { Header } from "./Components/Header/Header";
 import { ProvedorTema } from "./Components/ProvedorTema/ProvedorTema";
 import { Tipografia } from "./Components/Tipografia/Tipografia";
@@ -21,6 +22,7 @@ function App() {
         </Tipografia>
         <CampoTexto label={"Nome Completo"} />
       </Card>
+      <Footer />
     </ProvedorTema>
   );
 }
