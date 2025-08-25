@@ -4,14 +4,14 @@ const tema = {
   cores: {
     branco: "#FFFFFF",
     atencao: "",
-    focus: "",
+    focus: "#B009FF",
     primarias: {
       a: "#5754ED",
-      b: "",
+      b: "#D93114",
       c: "",
     },
     secundarias: {
-      a: "#EBEAF9",
+      a: "#F8F8FD",
       b: "",
       c: "",
     },
@@ -24,7 +24,7 @@ const tema = {
     },
     dark: {
       a: "",
-      b: "",
+      b: "#B61B00",
     },
   },
 
@@ -32,6 +32,7 @@ const tema = {
     xs: "8px",
     s: "16px",
     l: "32px",
+    xl: "80px",
   },
 
   fonte: "'Montserrat', sans-serif",

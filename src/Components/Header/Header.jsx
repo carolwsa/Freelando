@@ -8,7 +8,7 @@ const HeaderEstilizado = styled.header`
   background: ${(props) => props.theme.cores.primarias.a};
   padding: ${(props) => props.theme.espacamentos.m};
   color: #f5f5f5;
-  height: 104px;
+  height: 100px;
   width: 100%;
   display: flex;
   justify-content: space-around;

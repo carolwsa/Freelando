@@ -9,16 +9,25 @@ import styled from "@emotion/styled";
 
 export const Rodape = styled.footer`
   background: ${(props) => props.theme.cores.primarias.a};
-  padding: ${(props) => props.theme.espacamentos.xl};
+  padding: ${(props) => props.theme.espacamentos.xs};
   color: ${(props) => props.theme.cores.branco};
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  .descContainer,
+  .iconsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 36px ${(props) => props.theme.espacamentos.xl};
+  }
 `;
 
 export const Footer = () => {
   return (
     <Rodape>
-      <div>
+      <div className="descContainer">
         <Imagens children={img} tipo={"logo2"}></Imagens>
         <Links
           children={
@@ -27,12 +36,14 @@ export const Footer = () => {
           link={"#"}
         ></Links>
       </div>
-      <div>
+      <div className="iconsContainer">
         <Links children={"Acesse nossas redes:"} link={"#"}></Links>
-        <Imagens children={whats}></Imagens>
-        <Imagens children={twitch}></Imagens>
-        <Imagens children={insta}></Imagens>
-        <Imagens children={tt}></Imagens>
+        <div className="icons">
+          <Imagens children={whats} tipo={"icons"}></Imagens>
+          <Imagens children={twitch} tipo={"icons"}></Imagens>
+          <Imagens children={insta} tipo={"icons"}></Imagens>
+          <Imagens children={tt} tipo={"icons"}></Imagens>
+        </div>
       </div>
     </Rodape>
   );
