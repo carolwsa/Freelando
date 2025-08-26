@@ -7,6 +7,7 @@ const LabelEstilizada = styled.label`
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
+  margin: ${(props) => props.theme.espacamentos.xs} 0;
 `;
 
 const InputEstilizado = styled.input`

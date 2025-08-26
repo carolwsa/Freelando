@@ -7,11 +7,14 @@ const BotaoPrimarioEstilizado = styled.button`
   padding: ${(props) => props.theme.espacamentos.xs};
   box-sizing: border-box;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   text-align: center;
+  height: 45px;
   cursor: pointer;
   border: none;
+  width: 100%;
+  margin-top: 30px;
   &:hover {
     background: ${(props) => props.theme.cores.dark.b};
   }
@@ -27,9 +30,12 @@ const BotaoSecundarioEstilizado = styled.button`
   padding: ${(props) => props.theme.espacamentos.xs};
   box-sizing: border-box;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  height: 45px;
   cursor: pointer;
   &:hover {
     border-color: ${(props) => props.theme.cores.dark.b};
