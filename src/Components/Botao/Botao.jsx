@@ -46,9 +46,15 @@ const BotaoSecundarioEstilizado = styled.button`
   }
 `;
 
-export const Botao = ({ children, variante = "primaria" }) => {
+export const Botao = ({ children, variante = "primaria", tipo }) => {
   if (variante === "primaria") {
-    return <BotaoPrimarioEstilizado>{children}</BotaoPrimarioEstilizado>;
+    return (
+      <BotaoPrimarioEstilizado type={tipo}>{children}</BotaoPrimarioEstilizado>
+    );
   }
-  return <BotaoSecundarioEstilizado>{children}</BotaoSecundarioEstilizado>;
+  return (
+    <BotaoSecundarioEstilizado type={tipo}>
+      {children}
+    </BotaoSecundarioEstilizado>
+  );
 };

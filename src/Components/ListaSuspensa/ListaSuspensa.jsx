@@ -71,11 +71,10 @@ const LiEstilizada = styled.li`
   }
 `;
 
-export const ListaSuspensa = ({ titulo, opcoes }) => {
+export const ListaSuspensa = ({ titulo, opcoes, valor, onChange }) => {
   const [estaAberta, alternarVisibilidade] = useState(false);
 
   const [opcaoFocada, setOpcaofocada] = useState(null);
-  const [opcaoSelecionada, setOpcaoSelecionada] = useState(null);
 
   const manipularTecla = (evento) => {
     alternarVisibilidade(true);
@@ -105,7 +104,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
         evento.preventDefault();
         setOpcaofocada(null);
         alternarVisibilidade(false);
-        setOpcaoSelecionada(opcoes[opcaoFocada]);
+        onChange(opcoes[opcaoFocada]);
         break;
       case "Tab":
       case "Escape":
@@ -126,8 +125,9 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
         estaAberta={estaAberta}
         onClick={() => alternarVisibilidade(!estaAberta)}
         onKeyDown={manipularTecla}
+        type="button"
       >
-        <div>{opcaoSelecionada ? opcaoSelecionada.text : "Selecione"}</div>
+        <div> {valor ? valor.text : "Selecione"} </div>
         <div>
           <span>{estaAberta ? "▲" : "▼"}</span>
         </div>
@@ -138,7 +138,7 @@ export const ListaSuspensa = ({ titulo, opcoes }) => {
             <LiEstilizada
               key={opcao.value}
               focoAtivo={index === opcaoFocada}
-              onClick={() => setOpcaoSelecionada(opcao)}
+              onClick={() => onChange(opcao.value)}
             >
               {" "}
               {opcao.text}{" "}

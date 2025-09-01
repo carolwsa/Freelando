@@ -25,11 +25,15 @@ const InputEstilizado = styled.input`
   line-height: 17px;
   padding-left: ${(props) => props.theme.espacamentos.s};
 `;
-export const CampoTexto = ({ label }) => {
+export const CampoTexto = ({ label, valor, onChange, tipo = "text" }) => {
   return (
     <LabelEstilizada>
       {label}
-      <InputEstilizado />
+      <InputEstilizado
+        value={valor}
+        onChange={(evento) => onChange(evento.target.value)}
+        type={tipo}
+      />
     </LabelEstilizada>
   );
 };

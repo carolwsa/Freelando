@@ -3,6 +3,7 @@ import { Imagens } from "./Itens/Imagens";
 import { Links } from "./Itens/Links";
 import img from "../../IMG/freelando.png";
 import perfil from "../../IMG/perfil.png";
+import { useCadastroUsuarioContext } from "../../Context/CadastroUsuario";
 
 const HeaderEstilizado = styled.header`
   background: ${(props) => props.theme.cores.primarias.a};
@@ -24,18 +25,34 @@ const HeaderEstilizado = styled.header`
 `;
 
 export const Header = () => {
+  const { cadastroConcluido } = useCadastroUsuarioContext();
+
   return (
-    <HeaderEstilizado>
-      <div className="img">
-        <Imagens children={img} tipo={"logo"} />
-      </div>
-      <div className="content">
-        <Links children={"Contrate"} link={"#"} />
-        <Links children={"Encontre Trabalho"} link={"#"} />
-        <Links children={"Meus projetos"} link={"#"} />
-        <Imagens children={perfil} tipo={"perfil"} />
-        <Links children={"Sair"} link={"#"} />
-      </div>
-    </HeaderEstilizado>
+    <>
+      {!cadastroConcluido && (
+        <HeaderEstilizado>
+          <div className="img">
+            <Imagens children={img} tipo={"logo"} />
+          </div>
+          <div className="content">
+            <Links children={"Login"} link={"#"} />
+          </div>
+        </HeaderEstilizado>
+      )}
+      {cadastroConcluido && (
+        <HeaderEstilizado>
+          <div className="img">
+            <Imagens children={img} tipo={"logo"} />
+          </div>
+          <div className="content">
+            <Links children={"Contrate"} link={"#"} />
+            <Links children={"Encontre Trabalho"} link={"#"} />
+            <Links children={"Meus projetos"} link={"#"} />
+            <Imagens children={perfil} tipo={"perfil"} />
+            <Links children={"Sair"} link={"#"} />
+          </div>
+        </HeaderEstilizado>
+      )}
+    </>
   );
 };
