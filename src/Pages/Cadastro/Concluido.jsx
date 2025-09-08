@@ -25,8 +25,8 @@ const Concluido = () => {
         </Row>
         <Row justify="center">
           <Col lg={6} md={6} sm={6} style={{ textAlign: "center" }}>
-            <Link to="/cadastro/paginaInicial">
-              <Botao variante="secundaria">Voltar para a home</Botao>
+            <Link to="/login">
+              <Botao variante="secundaria">Voltar para o login</Botao>
             </Link>
           </Col>
         </Row>

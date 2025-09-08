@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import http from "../Http";
 
 const usuarioInicial = {
   perfil: "",
@@ -24,7 +25,6 @@ export const CadastroUsuarioContext = createContext({
   setSenhaConfirmada: () => null,
   submeterUsuario: () => null,
   possoSelecionarinteresse: () => null,
-  cadastroConcluido: false,
 });
 
 export const useCadastroUsuarioContext = () => {
@@ -33,7 +33,6 @@ export const useCadastroUsuarioContext = () => {
 
 export const CadastroUsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(usuarioInicial);
-  const [cadastroConcluido, setCadastroConcluido] = useState(false);
   const navegar = useNavigate();
 
   const setPerfil = (perfil) => {
@@ -109,13 +108,18 @@ export const CadastroUsuarioProvider = ({ children }) => {
   };
 
   const submeterUsuario = () => {
+    http
+      .post("auth/register", usuario)
+      .then(() => {
+        navegar("/cadastro/concluido");
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      });
     if (usuario.senha.length < 8) {
       alert("Insira pelo menos 8 caracteres na senha!");
       return;
     }
-    console.log(usuario);
-    setCadastroConcluido(true);
-    navegar("/cadastro/concluido");
   };
 
   const possoSelecionarinteresse = () => {
@@ -134,7 +138,6 @@ export const CadastroUsuarioProvider = ({ children }) => {
     setSenhaConfirmada,
     submeterUsuario,
     possoSelecionarinteresse,
-    cadastroConcluido,
   };
 
   return (

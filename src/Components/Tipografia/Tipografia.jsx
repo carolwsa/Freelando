@@ -18,7 +18,15 @@ const estilos = {
         line-height: 49px;
         text-align: center;
         margin: 2px;
+        margin-bottom: 20px;
     `,
+  h12: `
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    text-align: left;
+    margin: 2px;
+`,
   h2: `
         font-weight: 600;
         font-size: 32px;
@@ -46,21 +54,33 @@ const estilos = {
         line-height: 20px;
     `,
   body2Bold: `
-        font-weight: 700;
+        font-weight: 600;
         font-size: 16px;
         line-height: 20px;
+        color: #D93114;
+        text-decoration: underline;
+
+        :hover {
+        color: #B61B00;
+        }
     `,
   legenda: `
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
+        text-align: right;
+        text-decoration: underline;
+        margin-top: 5px;
+        color: #373737;
     `,
 };
 
-export const Tipografia = ({ variante, componente, children }) => {
+export const Tipografia = ({ variante, componente, children, onClick }) => {
   const tag = componentes[componente];
   const ComponenteUtilizado = styled[tag]`
     ${estilos[variante]}
   `;
-  return <ComponenteUtilizado>{children}</ComponenteUtilizado>;
+  return (
+    <ComponenteUtilizado onClick={onClick}>{children}</ComponenteUtilizado>
+  );
 };

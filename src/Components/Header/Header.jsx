@@ -3,7 +3,8 @@ import { Imagens } from "./Itens/Imagens";
 import { Links } from "./Itens/Links";
 import img from "../../IMG/freelando.png";
 import perfil from "../../IMG/perfil.png";
-import { useCadastroUsuarioContext } from "../../Context/CadastroUsuario";
+import { useSessaoUsuarioContext } from "../../Context/SessaoUsuario";
+import { useNavigate } from "react-router-dom";
 
 const HeaderEstilizado = styled.header`
   background: ${(props) => props.theme.cores.primarias.a};
@@ -25,7 +26,8 @@ const HeaderEstilizado = styled.header`
 `;
 
 export const Header = () => {
-  const { cadastroConcluido } = useCadastroUsuarioContext();
+  const { cadastroConcluido } = useSessaoUsuarioContext();
+  const nav = useNavigate();
 
   return (
     <>
@@ -35,7 +37,7 @@ export const Header = () => {
             <Imagens children={img} tipo={"logo"} />
           </div>
           <div className="content">
-            <Links children={"Login"} link={"#"} />
+            <Links children={"Login"} tipo={"login"} />
           </div>
         </HeaderEstilizado>
       )}
@@ -48,8 +50,11 @@ export const Header = () => {
             <Links children={"Contrate"} link={"#"} />
             <Links children={"Encontre Trabalho"} link={"#"} />
             <Links children={"Meus projetos"} link={"#"} />
-            <Imagens children={perfil} tipo={"perfil"} />
-            <Links children={"Sair"} link={"#"} />
+            <Imagens
+              children={perfil}
+              tipo={"perfil"}
+              onClick={() => nav("/area-logada/perfil")}
+            />
           </div>
         </HeaderEstilizado>
       )}

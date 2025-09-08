@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { CadastroUsuarioProvider } from "../../Context/CadastroUsuario";
 import { Header } from "../../Components/Header/Header";
 
-const LayoutBase = () => {
+const LayoutBase = ({ children }) => {
   return (
     <CadastroUsuarioProvider>
       <Header />
@@ -16,10 +16,13 @@ const LayoutBase = () => {
           lg={6}
           md={8}
           sm={12}
-          style={{ margin: "80px 0" }}
+          style={{
+            margin: "80px 0",
+          }}
         >
           <Card>
             <Outlet />
+            {children}
           </Card>
         </Col>
       </Row>

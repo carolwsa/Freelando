@@ -10,6 +10,8 @@ const ImagensEstilizada = styled.img`
       ? "176.06px"
       : props.tipo === "icons"
       ? "32px"
+      : props.tipo === "opcoes"
+      ? "72px"
       : ""};
   height: ${(props) =>
     props.tipo === "logo"
@@ -20,17 +22,22 @@ const ImagensEstilizada = styled.img`
       ? "40px"
       : props.tipo === "icons"
       ? "32px"
+      : props.tipo === "opcoes"
+      ? "72px"
       : ""};
 
   padding-right: ${(props) =>
     props.tipo === "icons" ? props.theme.espacamentos.xs : 0};
+
+  cursor: ${(props) => (props.tipo === "perfil" ? "pointer" : "default")};
 `;
 
-export const Imagens = ({ children, tipo }) => {
+export const Imagens = ({ children, tipo, onClick }) => {
   return (
     <ImagensEstilizada
       src={children}
       tipo={tipo}
+      onClick={onClick}
       alt="Imagens para composição do site"
     />
   );
